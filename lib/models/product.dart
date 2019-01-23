@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:reactiveapp/models/index.dart';
+import 'dart:ui' show Color;
 
-class Product extends CartItem{
-    final String name;
-    final MaterialColor color;
-    Product(this.name, this.color):super(name, color);
+class Product {
+  /// The unique identifier of the product.
+  final int id;
+
+  /// The default text to display.
+  final String name;
+
+  /// A color associated with the product.
+  final Color color;
+
+  const Product(this.id, this.name, this.color);
+
+  @override
+  int get hashCode => id;
+
+  @override
+  bool operator ==(other) => other is Product && other.hashCode == hashCode;
+
+  @override
+  String toString() => "$name (id=$id)";
 }
