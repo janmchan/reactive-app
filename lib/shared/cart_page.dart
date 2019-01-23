@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/cart.dart';
-import '../models/cart_item.dart';
+import 'package:reactiveapp/Utils/is_dark.dart';
+import 'package:reactiveapp/models/cart.dart';
+import 'package:reactiveapp/models/cart_item.dart';
 
 class CartPage extends StatelessWidget {
   CartPage(this.cart);
@@ -47,10 +48,5 @@ class ItemTile extends StatelessWidget {
     );
   }
 
-  bool isDark(Color color) {
-    final luminence =
-        (0.2126 * color.red + 0.7152 * color.green + 0.0722 * color.blue);
-    return luminence < 150;
-  }
 }
 

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:reactiveapp/services/catalog_service.dart';
 import 'catalog_slice.dart';
-import '../services/catalog.dart';
 import '../services/catalog_page.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -100,24 +99,9 @@ class CatalogBloc {
 
     _sliceSubject.add(slice);
   }
-}
 
-/// The equivalent of [CartProvider], but for [CatalogBloc].
-class CatalogProvider extends InheritedWidget {
-  final CatalogBloc catalogBloc;
+  void dispose(){
+    _indexController.close();
+  }
 
-  CatalogProvider({
-    Key key,
-    @required CatalogBloc catalog,
-    Widget child,
-  })  : assert(catalog != null),
-        catalogBloc = catalog,
-        super(key: key, child: child);
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
-
-  static CatalogBloc of(BuildContext context) =>
-      (context.inheritFromWidgetOfExactType(CatalogProvider) as CatalogProvider)
-          .catalogBloc;
 }

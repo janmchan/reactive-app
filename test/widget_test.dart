@@ -7,13 +7,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:reactiveapp/main.dart';
+import 'package:reactiveapp/cart/cart_bloc.dart';
+import 'package:reactiveapp/catalog/catalog_bloc.dart';
+import 'package:reactiveapp/product/product_catalog.dart';
+import 'package:reactiveapp/services/catalog_service.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(ReactiveApp(
+      CatalogBloc(
+        CatalogService()
+      ), 
+      CartBloc()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

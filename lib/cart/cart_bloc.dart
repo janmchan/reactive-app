@@ -9,8 +9,17 @@ class CartBloc {
 
   Sink<Product> get addition => _additionController.sink;
 
-  ValueObservable<int> get itemCount => _itemCountSubject.stream;
+  Stream<int> get itemCount => _itemCountSubject.stream;
 
   final _itemCountSubject = BehaviorSubject<int>();
+
+  CartBloc() {
+    _additionController.stream.listen(_handle);
+  }
+
+  void _handle(Product product) {
+    _cart.add(product);
+    _itemCountSubject.add(_cart.itemCount);
+  }
 
 }

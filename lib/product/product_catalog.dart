@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:reactiveapp/cart/cart_bloc.dart';
 import 'package:reactiveapp/cart/cart_provider.dart';
 import 'package:reactiveapp/catalog/catalog_bloc.dart';
+import 'package:reactiveapp/catalog/catalog_provider.dart';
 import 'package:reactiveapp/product_square.dart';
 import '../shared/cart_button.dart';
 import '../shared/theme.dart';
 import '../services/catalog.dart';
-import '../bloc/bloc_cart_page.dart';
+import '../cart/bloc_cart_page.dart';
 
 
 class ReactiveApp extends StatelessWidget {

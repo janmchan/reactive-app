@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import '../models/cart_item.dart';
 import '../shared/cart_page.dart';
-import '../cart/cart_provider.dart';
 
 class BlocCartPage extends StatelessWidget {
   static const routeName = '/cart';
 
   @override
   Widget build(BuildContext context) {
-    final cartBloc = CartProvider.of(context);
 
     return Scaffold(
       appBar: AppBar(
